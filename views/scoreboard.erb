@@ -25,7 +25,8 @@ function create_row(user, score) {
     var board = document.getElementById('scoreboard');
     var new_row = document.createElement('div');
     new_row.className = "player";
-    board.appendChild(new_row);
+    new_row.setAttribute("data-name", user);
+    new_row.setAttribute("data-score", score);
 
     var name_div = document.createElement('div');
     name_div.className = "score";
@@ -36,14 +37,18 @@ function create_row(user, score) {
     score_div.className = "score";
     score_div.innerHTML = score;
     new_row.appendChild(score_div);
+
+    var rows = board.getElementsByClassName("player");
+    for ( var i = 0 ; i < rows.length ; i++ ) {
+        if (parseInt(rows[i].getAttribute("data-score")) > score)
+            continue;
+        board.insertBefore(new_row, rows[i]);
+        return;
+    }
+    board.appendChild(new_row);
 }
 
 function show_score(user, score) {
-}
-
-function set_player_one(user,score) {
-    var player_one_row = document.getElementById('scoreboard').childNodes[1];
-    player_one_row.className = "player_one";
 }
 
 $(document).ready(function(){
@@ -52,3 +57,4 @@ $(document).ready(function(){
     $.ajax({url:'/<%= @player_one %>/following', success:handle_followers});
 });
 </script>
+
