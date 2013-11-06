@@ -55,6 +55,7 @@ end
 
 get '/:name' do |name|
     @player_one = name
+    @title = "Scoreboard for #@player_one"
     erb :scoreboard
 end
 
