@@ -55,15 +55,15 @@ get '/:name/following' do |name|
     end
     players.map do |player|
         data = {:user => player}
-        data[stats] = Player.new(player).export if Stats_Cache.include? player
+        data[:stats] = Player.new(player).export if Stats_Cache.include? player
         data
     end.to_json
 end
 
 get '/:name' do |name|
-    @player_one = name
-    @score = Stats_Cache.include?(@player_one) ? Player.new(@player_one).export : -1
-    @title = "Scoreboard for #@player_one"
+    @player_one_name = name
+    @player_one_stats = Player.new(name).export.to_json if Stats_Cache.include? name
+    @title = "Scoreboard for #{name}"
     erb :scoreboard
 end
 

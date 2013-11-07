@@ -1,6 +1,8 @@
 <div id='scoreboard'>
 </div>
-<div id='player_one_tag' data-name='<%= @player_one %>' data-score='<%= @player_one_score %>' />
+<script>
+var player_one = {user: "<%= @player_one_name %>"<%= ", stats: #@player_one_stats" unless @player_one_stats.nil? %>};
+</script>
 <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="/js/scoreboard.js"></script>
 

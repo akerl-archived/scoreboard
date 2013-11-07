@@ -3,7 +3,7 @@ function handle_followers(data) {
 }
 
 function add_player(data) {
-    ('score' in data) ? create_row(data) : $.ajax({url:'/' + data.user + '/stats', success:create_row});
+    ('stats' in data) ? create_row(data) : $.ajax({url:'/' + data.user + '/stats', success:create_row});
 }
 
 function create_row(data) {
@@ -38,13 +38,7 @@ function create_row(data) {
 }
 
 $(document).ready(function(){
-    var player_one_tag = document.getElementById('player_one_tag');
-    player_one = { user: player_one_tag.getAttribute('data-name') };
-    var score = player_one_tag.getAttribute('data-score');
-    if (score != -1) {
-        player_one.score = score;
-    }
     add_player(player_one);
-    $.ajax({url:'/' + player_one + '/following', success:handle_followers});
+    $.ajax({url:'/' + player_one.user + '/following', success:handle_followers});
 });
 
