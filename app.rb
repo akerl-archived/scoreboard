@@ -36,21 +36,28 @@ end
 get '/:name/stats' do |name|
     headers 'Content-Type' => 'application/json'
     begin
-        data = Player.new(name).export.to_json
+        data = {
+            :user => name,
+            :stats => Player.new(name).export
+        }
     rescue
         halt 500, '{}'
     end
-    body data
+    data.to_json
 end
 
 get '/:name/following' do |name|
     headers 'Content-Type' => 'application/json'
     begin
-        data = Client.following(name).map { |x| x.login }.to_json
+        players = Client.following(name).map { |x| x.login }
     rescue
         halt 500, '{}'
     end
-    body data
+    players.map do |player|
+        data = {:user => player}
+        data[stats] = Player.new(name).export if Stats_Cache.include? player
+        data
+    end.to_json
 end
 
 get '/:name' do |name|
