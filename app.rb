@@ -62,6 +62,7 @@ end
 
 get '/:name' do |name|
     @player_one = name
+    @score = Stats_Cache.include? player ? Player.new(name).export : -1
     @title = "Scoreboard for #@player_one"
     erb :scoreboard
 end

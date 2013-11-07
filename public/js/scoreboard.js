@@ -38,8 +38,13 @@ function create_row(data) {
 }
 
 $(document).ready(function(){
-    var player_one = '<%= @player_one %>';
-    add_player({user: player_one});
-    $.ajax({url:'/<%= @player_one %>/following', success:handle_followers});
+    var player_one_tag = document.getElementById('player_one_tag');
+    player_one = { user: player_one_tag.getAttribute('data-name') };
+    var score = player_one_tag.getAttribute('data-score');
+    if (score != -1) {
+        player_one.score = score;
+    }
+    add_player(player_one);
+    $.ajax({url:'/' + player_one + '/following', success:handle_followers});
 });
 
