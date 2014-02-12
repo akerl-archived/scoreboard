@@ -17,7 +17,7 @@ function create_row(data) {
     new_row.setAttribute('data-score', score);
 
     var name_div = document.createElement('div');
-    name_div.className = 'score';
+    name_div.className = 'name';
     name_div.innerHTML = '<h3>' + user + '</h3>';
     new_row.appendChild(name_div);
 
