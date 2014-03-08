@@ -1,2 +1,6 @@
-config.yaml
+pkg/*.gem
+coverage/
+.coveralls.yml
+.bundle
 Gemfile.lock
+config.yaml

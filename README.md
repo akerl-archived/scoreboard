@@ -1,9 +1,20 @@
 scoreboard
 =========
 
-Sinatra app to show a user's Github streak compared to the people they follow
+[![Dependency Status](https://img.shields.io/gemnasium/akerl/scoreboard.svg)](https://gemnasium.com/akerl/scoreboard)
+[![Code Climate](https://img.shields.io/codeclimate/github/akerl/scoreboard.svg)](https://codeclimate.com/github/akerl/scoreboard)
+[![Coverage Status](https://img.shields.io/coveralls/akerl/scoreboard.svg)](https://coveralls.io/r/akerl/scoreboard)
+[![Build Status](https://img.shields.io/travis/akerl/scoreboard.svg)](https://travis-ci.org/akerl/scoreboard)
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://tldrlegal.com/license/mit-license)
+
+Sinatra app to show a user's Github streak compared to the people they follow.
 
 ## Installation
+
+    git clone git://github.com/akerl/scoreboard
+    cd scoreboard
+    bundle install
+    ruby app.rb
 
 ## License
 
