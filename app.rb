@@ -19,7 +19,7 @@ API_CACHE = Faraday::RackBuilder.new do |builder|
 end
 Octokit.middleware = API_CACHE
 
-STATS_CACHE = BasicCache::TimeCache.new(900)
+STATS_CACHE = BasicCache::TimeCache.new(lifetime: 900)
 
 ##
 # Player definition for easier reuse below
