@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem "octokit", "~> 2.0"
 gem "sinatra"
-gem "github_stats"
+gem "githubstats"
 gem "faraday-http-cache"
-gem "basic_cache"
+gem "basiccache"
 

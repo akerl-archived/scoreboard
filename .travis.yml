@@ -1,0 +1,13 @@
+language: ruby
+cache: bundler
+rvm:
+- 2.1.0
+- 2.0.0
+- 1.9.3
+notifications:
+  email: false
+  irc:
+    template:
+    - "%{repository}/%{branch}/%{build_number}: %{message} -- %{build_url}"
+    channels:
+      secure: AtsHVGjTh+ZjIdz6yVrdzMJ7XI475JmArdmEXakmEuL40YfcjBYZYQc3y1SH6LFdkuy3FwpVafgpn/m4VCtf6dRDGnifX9BZcs3qtRqYFLnYZc7kmNmCT5RlkARlyrpRjy6XxWD4WJi2uU31cRO4DcS+B9CdtiDPSkMGmFjJzcw=
