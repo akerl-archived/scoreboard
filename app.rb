@@ -32,7 +32,7 @@ class Player
   end
 
   def export
-    { score: @stats.streak.length }
+    { score: @stats.streak.length, today: @stats.streak.today }
   end
 end
 
