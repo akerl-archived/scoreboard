@@ -10,9 +10,4 @@ Rubocop::RakeTask.new(:rubocop) do |task|
   task.fail_on_error = true
 end
 
-desc 'Run travis-lint on .travis.yml'
-task :travislint do
-  print 'There is an issue with your .travis.yml' unless system('travis-lint')
-end
-
-task default: [:spec, :travislint, :rubocop]
+task default: [:spec, :rubocop]

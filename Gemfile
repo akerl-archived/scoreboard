@@ -8,7 +8,6 @@ gem 'basiccache', '~> 0.1.0'
 
 group :development do
   gem 'rubocop', '~> 0.19.0'
-  gem 'travis-lint', '~> 1.8.0'
   gem 'rake', '~> 10.1.1'
   gem 'coveralls', '~> 0.7.0'
   gem 'rspec', '~> 2.14.1'
