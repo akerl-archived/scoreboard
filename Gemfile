@@ -5,6 +5,7 @@ gem 'sinatra', '~> 1.4.4'
 gem 'githubstats', '~> 0.2.8'
 gem 'faraday-http-cache', '~> 0.4.0'
 gem 'basiccache', '~> 0.1.0'
+gem 'thin', '~> 1.6.2'
 
 group :development do
   gem 'rubocop', '~> 0.20.0'
