@@ -14,6 +14,7 @@ Sinatra app to show a user's Github streak compared to the people they follow.
     git clone git://github.com/akerl/scoreboard
     cd scoreboard
     bundle install
+    cp config.yaml.example config.yaml # edit with valid creds 
     ruby app.rb
 
 ## License
