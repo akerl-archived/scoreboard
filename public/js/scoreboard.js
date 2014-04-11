@@ -9,23 +9,22 @@ function add_player(data) {
 function create_row(data) {
     var user = data.user;
     var score = data.stats.score;
-
     var board = document.getElementById('scoreboard');
+
     var new_row = document.createElement('div');
     new_row.className = 'player';
     new_row.setAttribute('data-name', user);
     new_row.setAttribute('data-score', score);
 
-    var name_div = document.createElement('div');
-    name_div.className = 'name';
-    name_div.innerHTML = '<h3>' + user + '</h3>';
-    new_row.appendChild(name_div);
+    var name_span = document.createElement('span');
+    name_span.className = 'name';
+    name_span.innerHTML = user;
+    new_row.appendChild(name_span);
 
-    var score_div = document.createElement('div');
-    score_div.className = 'score';
-    score_div.innerHTML = score;
-    score_div.setAttribute('data-score', score);
-    new_row.appendChild(score_div);
+    var score_span = document.createElement('span');
+    score_span.className = 'score';
+    score_span.innerHTML = score;
+    new_row.appendChild(score_span);
 
     var rows = board.getElementsByClassName('player');
     for ( var i = 0 ; i < rows.length ; i++ ) {
