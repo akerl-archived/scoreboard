@@ -6,34 +6,36 @@ function add_player(data) {
     ('stats' in data) ? create_row(data) : $.ajax({url:'/' + data.user + '/stats', success:create_row});
 }
 
+function new_element(target, type, new_class, contents) {
+    var element = document.createElement(type);
+    element.className = new_class;
+    element.innerHTML = contents;
+    target.appendChild(element);
+}
+
 function create_row(data) {
     var user = data.user;
     var score = data.stats.score;
+    var today = data.stats.today;
     var board = document.getElementById('scoreboard');
 
-    var new_row = document.createElement('div');
-    new_row.className = 'player';
-    new_row.setAttribute('data-name', user);
-    new_row.setAttribute('data-score', score);
+    var row = document.createElement('div');
+    row.className = 'player';
+    row.setAttribute('data-name', user);
+    row.setAttribute('data-score', score);
 
-    var name_span = document.createElement('span');
-    name_span.className = 'name';
-    name_span.innerHTML = user;
-    new_row.appendChild(name_span);
+    new_element(row, 'span', 'name', user);
+    new_element(row, 'span', 'score', score);
 
-    var score_span = document.createElement('span');
-    score_span.className = 'score';
-    score_span.innerHTML = score;
-    new_row.appendChild(score_span);
+    if (today == 1) new_element(row, 'i', 'fa fa-check-square', '');
 
     var rows = board.getElementsByClassName('player');
     for ( var i = 0 ; i < rows.length ; i++ ) {
-        if (parseInt(rows[i].getAttribute('data-score')) > score)
-            continue;
-        board.insertBefore(new_row, rows[i]);
+        if (parseInt(rows[i].getAttribute('data-score')) > score) continue;
+        board.insertBefore(row, rows[i]);
         return;
     }
-    board.appendChild(new_row);
+    board.appendChild(row);
 }
 
 $(document).ready(function(){
