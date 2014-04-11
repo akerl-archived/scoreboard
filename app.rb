@@ -19,55 +19,43 @@ API_CACHE = Faraday::RackBuilder.new do |builder|
 end
 Octokit.middleware = API_CACHE
 
-STATS_CACHE = BasicCache::TimeCache.new(lifetime: 900)
+STATS = BasicCache::TimeCache.new(lifetime: 900)
+PLAYERS = BasicCache::TimeCache.new(lifetime: 1800)
 
-##
-# Player definition for easier reuse below
-class Player
-  attr_reader :name, :stats
-
-  def initialize(name)
-    @name = name
-    @stats = STATS_CACHE.cache(name) { GithubStats.new(name) }
+def load_stats(name)
+  STATS.cache(name) do
+    streak = GithubStats.new(name).streak
+    today = streak.last && streak.last.date == Date.today ? 1 : 0
+    { user: name, stats: { score: streak.length, today: today } }
   end
+end
 
-  def export
-    { score: @stats.streak.length }
-  end
+def load_players(name)
+  players = PLAYERS.cache(name) { CLIENT.following(name).map(&:login) << name }
+  players.map { |p| STATS.include?(p) ? load_stats(p) : { user: p } }
 end
 
 get '/:name/stats' do |name|
-  headers 'Content-Type' => 'application/json'
   begin
-    data = {
-      user: name,
-      stats: Player.new(name).export
-    }
+    headers 'Content-Type' => 'application/json'
+    load_stats(name).to_json
   rescue
     halt 500, '{}'
   end
-  data.to_json
 end
 
 get '/:name/following' do |name|
-  headers 'Content-Type' => 'application/json'
   begin
-    players = CLIENT.following(name).map { |x| x.login }
+    headers 'Content-Type' => 'application/json'
+    load_players(name).to_json
   rescue
     halt 500, '{}'
   end
-  players.map do |player|
-    data = { user: player }
-    data[:stats] = Player.new(player).export if STATS_CACHE.include? player
-    data
-  end.to_json
 end
 
 get '/:name' do |name|
-  @player_one_name = name
-  if STATS_CACHE.include? name
-    @player_one_stats = Player.new(name).export.to_json
-  end
+  @player_one = name
+  @preload = load_players(name).to_json if PLAYERS.include? name
   @title = "Scoreboard for #{name}"
   erb :scoreboard
 end

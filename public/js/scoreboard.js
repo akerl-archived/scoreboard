@@ -38,7 +38,10 @@ function create_row(data) {
 }
 
 $(document).ready(function(){
-    add_player(player_one);
-    $.ajax({url:'/' + player_one.user + '/following', success:handle_followers});
+    if (typeof preload === 'undefined') {
+        $.ajax({url:'/' + player_one + '/following', success:handle_followers});
+    } else {
+        handle_followers(preload);
+    }
 });
 
