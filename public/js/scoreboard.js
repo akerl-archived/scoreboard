@@ -9,7 +9,7 @@ function add_player(data) {
 function new_element(target, type, new_class, contents) {
     var element = document.createElement(type);
     element.className = new_class;
-    element.innerHTML = contents;
+    element.textContent = contents;
     target.appendChild(element);
 }
 
@@ -24,7 +24,8 @@ function create_row(data) {
     row.setAttribute('data-name', user);
     row.setAttribute('data-score', score);
 
-    new_element(row, 'span', 'name', user + '<i class="fa fa-github-square"></i>');
+    new_element(row, 'span', 'name', user);
+    new_element(row, 'i', 'fa fa-github-square', '');
     new_element(row, 'span', 'score', score);
 
     if (today == 1) new_element(row, 'i', 'fa fa-check-square', '');

@@ -61,5 +61,7 @@ get '/:name' do |name|
 end
 
 get '/' do
-  redirect to("/#{CONFIG['username']}")
+  name = params[:name] || CONFIG['username']
+  halt 500 unless name.match '\w+'
+  redirect to("/#{name}")
 end
