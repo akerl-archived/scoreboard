@@ -25,5 +25,6 @@ jQuery is included, and is licensed under the MIT license, as described [here](h
 
 Font Awesome is included, and is licensed under the SIL OFL 1.1 and MIT licenses for the fonts and code respectively. Further details can be found [here](http://fontawesome.io/license/).
 
-NProgress is included, and is licensed under the MIT license, as described [here](https://github.com/rstacruz/nprogress)
+NProgress is included, and is licensed under the MIT license, as described [here](https://github.com/rstacruz/nprogress).
 
+Bijou is included, and is licensed under the MIT license, as described [here](https://github.com/andhart/bijou).
