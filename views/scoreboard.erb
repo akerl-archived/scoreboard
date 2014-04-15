@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title><%= @title %></title>
-<link rel="stylesheet" href="css/font-awesome.min.css">
-<link rel="stylesheet" href="css/nprogress.css">
-<link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-<div id="topbar">
-  <form action="/" method="GET">
-    <label for="name">Look up another GitHub user:</label>
-    <input type="text" name="name"/>
-    <input type="submit" value="Show!"/>
-  </form>
-</div>
 <div id="scoreboard">
 </div>
 <script>
 var player_one = "<%= @player_one %>";
 <%= "var preload = #{@preload};" if @preload%>
 </script>
-<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="js/nprogress.min.js"></script>
-<script type="text/javascript" src="js/scoreboard.js"></script>
-</body>
-</html>
