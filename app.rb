@@ -19,11 +19,18 @@ API_CACHE = Faraday::RackBuilder.new do |builder|
 end
 Octokit.middleware = API_CACHE
 
-STATS = BasicCache::TimeCache.new(lifetime: 900)
-PLAYERS = BasicCache::TimeCache.new(lifetime: 1800)
+if CONFIG.include? 'redis'
+  require 'redisstore'
+  args = CONFIG['redis'].is_a? Hash ? CONFIG['redis'] : {}
+  STORE = RedisStore.new(args)
+else
+  STORE = BasicCache::Store
+end
+
+CACHE = BasicCache::TimeCache.new(lifetime: 900, store: STORE)
 
 def load_stats(name)
-  STATS.cache(name) do
+  CACHE.cache(name) do
     streak = GithubStats.new(name).streak
     today = streak.last && streak.last.date == Date.today ? 1 : 0
     { user: name, stats: { score: streak.length, today: today } }
@@ -31,8 +38,8 @@ def load_stats(name)
 end
 
 def load_players(name)
-  players = PLAYERS.cache(name) { CLIENT.following(name).map(&:login) << name }
-  players.map { |p| STATS.include?(p) ? load_stats(p) : { user: p } }
+  players = CACHE.cache('player#' + name) { CLIENT.following(name).map(&:login) << name }
+  players.map { |p| CACHE.include?(p) ? load_stats(p) : { user: p } }
 end
 
 get '/:name/stats' do |name|
@@ -55,7 +62,7 @@ end
 
 get '/:name' do |name|
   @player_one = name
-  @preload = load_players(name).to_json if PLAYERS.include? name
+  @preload = load_players(name).to_json if CACHE.include? 'player#' + name
   @title = "Scoreboard for #{name}"
   erb :scoreboard
 end
