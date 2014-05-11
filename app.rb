@@ -38,7 +38,9 @@ def load_stats(name)
 end
 
 def load_players(name)
-  players = CACHE.cache('player#' + name) { CLIENT.following(name).map(&:login) << name }
+  players = CACHE.cache('player#' + name) do
+    CLIENT.following(name).map(&:login) << name
+  end
   players.map { |p| CACHE.include?(p) ? load_stats(p) : { user: p } }
 end
 
