@@ -21,10 +21,10 @@ Octokit.middleware = API_CACHE
 
 if CONFIG.include? 'redis'
   require 'redisstore'
-  args = CONFIG['redis'].is_a? Hash ? CONFIG['redis'] : {}
+  args = CONFIG['redis'].is_a?(Hash) ? CONFIG['redis'] : {}
   STORE = RedisStore.new(args)
 else
-  STORE = BasicCache::Store
+  STORE = BasicCache::Store.new
 end
 
 CACHE = BasicCache::TimeCache.new(lifetime: 900, store: STORE)
