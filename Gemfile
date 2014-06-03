@@ -12,5 +12,5 @@ group :development do
   gem 'rake', '~> 10.3.0'
   gem 'coveralls', '~> 0.7.0'
   gem 'rspec', '~> 3.0.0'
-  gem 'fuubar', '~> 1.3.2'
+  gem 'fuubar', '~> 1.3.3'
 end
