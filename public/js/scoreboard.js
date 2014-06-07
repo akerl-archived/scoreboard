@@ -1,4 +1,6 @@
 function handle_followers(data) {
+    size = data.length;
+    counter = 0;
     for (var i in data) add_player(data[i]);
 }
 
@@ -37,9 +39,13 @@ function create_row(data) {
         return;
     }
     board.appendChild(row);
+    NProgress.inc(100 / size);
+    counter++;
+    if (counter = size) NProgress.done();
 }
 
 $(document).ready(function(){
+    NProgress.start();
     if (typeof preload === 'undefined') {
         $.ajax({url:'/' + player_one + '/following', success:handle_followers});
     } else {
