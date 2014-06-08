@@ -21,10 +21,5 @@ Sinatra app to show a user's Github streak compared to the people they follow.
 
 scoreboard is released under the MIT License. See the bundled LICENSE file for details.
 
-jQuery is included, and is licensed under the MIT license, as described [here](https://jquery.org/license/).
+All content in ./assets/ is used under its original license, which is included in that directory.
 
-Font Awesome is included, and is licensed under the SIL OFL 1.1 and MIT licenses for the fonts and code respectively. Further details can be found [here](http://fontawesome.io/license/).
-
-NProgress is included, and is licensed under the MIT license, as described [here](https://github.com/rstacruz/nprogress).
-
-Bijou is included, and is licensed under the MIT license, as described [here](https://github.com/andhart/bijou).
