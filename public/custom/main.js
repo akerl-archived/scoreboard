@@ -45,6 +45,7 @@ function create_row(data) {
 }
 
 $(document).ready(function(){
+    NProgress.configure({ trickle: false, showSpinner: false });
     NProgress.start();
     if (typeof preload === 'undefined') {
         $.ajax({url:'/' + player_one + '/following', success:handle_followers});
