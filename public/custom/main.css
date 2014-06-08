@@ -6,3 +6,15 @@ body {
     font-size: 1.25em;
     line-height: 30px;
 }
+
+.player .name, .player .score {
+    font-size: 1.15em;
+    padding: 10px;
+    line-height: 1.5em;
+}
+
+.player i {
+    font-size: 1.5em;
+    line-height: 1em;
+    vertical-align: -10%;
+}
