@@ -3,21 +3,24 @@
 <head>
 <meta charset="utf-8">
 <title><%= @title %></title>
-<link rel="stylesheet" href="css/font-awesome.min.css">
-<link rel="stylesheet" href="css/nprogress.css">
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="fontawesome/css/fontawesome.min.css">
+<link rel="stylesheet" type="text/css" href="bijou/bijou.min.css">
+<link rel="stylesheet" type="text/css" href="nprogress/nprogress.css">
+<link rel="stylesheet" type="text/css" href="custom/main.css">
 </head>
 <body>
-<div id="topbar">
-  <form action="/" method="GET">
-    <label for="name">Look up another GitHub user:</label>
-    <input type="text" name="name"/>
-    <input type="submit" value="Show!"/>
-  </form>
+<div class="navbar fixed">
+  <div class="pull-right">
+    <form action="/" method="GET">
+      <label for="name">Look up another GitHub user:</label>
+      <input type="text" name="name"/>
+      <input type="submit" value="Show!"/>
+    </form>
+  </div>
 </div>
 <%= yield %>
-<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="js/nprogress.min.js"></script>
-<script type="text/javascript" src="js/scoreboard.js"></script>
+<script type="text/javascript" src="jquery/jquery.min.js"></script>
+<script type="text/javascript" src="nprogress/nprogress.min.js"></script>
+<script type="text/javascript" src="custom/main.js"></script>
 </body>
 </html>
