@@ -22,7 +22,7 @@ function create_row(data) {
     var board = document.getElementById('scoreboard');
 
     var row = document.createElement('div');
-    row.className = 'player';
+    row.className = 'row player';
     row.setAttribute('data-name', user);
     row.setAttribute('data-score', score);
 
