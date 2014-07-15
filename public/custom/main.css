@@ -1,5 +1,11 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
 body {
     margin-top: 60px;
+    background-color: #FAF5EA;
+    font-weight: 300;
 }
 
 a {
