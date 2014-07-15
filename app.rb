@@ -9,7 +9,8 @@ require 'json'
 CONFIG = YAML.load open('config.yaml').read
 CLIENT = Octokit::Client.new(
   login: CONFIG['username'],
-  password: CONFIG['password']
+  password: CONFIG['password'],
+  auto_paginate: true
 )
 
 API_CACHE = Faraday::RackBuilder.new do |builder|
@@ -44,8 +45,9 @@ def load_players(name)
   players.map { |p| CACHE.include?(p) ? load_stats(p) : { user: p } }
 end
 
-get '/:name/stats' do |name|
+get %r{/(\w+)/stats$} do |name|
   begin
+    name = params[:captures].first
     headers 'Content-Type' => 'application/json'
     load_stats(name).to_json
   rescue
@@ -53,8 +55,9 @@ get '/:name/stats' do |name|
   end
 end
 
-get '/:name/following' do |name|
+get %r{^/(\w+)/following$} do |name|
   begin
+    name = params[:captures].first
     headers 'Content-Type' => 'application/json'
     load_players(name).to_json
   rescue
@@ -62,8 +65,8 @@ get '/:name/following' do |name|
   end
 end
 
-get '/:name' do |name|
-  @player_one = name
+get %r{^/(\w+)$} do |name|
+  @player_one = params[:captures].first
   @preload = load_players(name) if CACHE.include? 'player#' + name
   @title = "Scoreboard for #{name}"
   erb :scoreboard
