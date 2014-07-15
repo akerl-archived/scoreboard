@@ -3,6 +3,7 @@
   <% if full %>
     <% full.sort_by! { |x| x[:stats][:score] }.reverse.each do |row| %>
       <div class="row player" data-name="<%= row[:user] %>" data-score="<%= row[:stats][:score] %>">
+        <span class="bar"></span>
         <a href="/<%= row[:user] %>"><span class="name"><%= row[:user] %></span></a>
         <a href="https://github.com/<%= row[:user] %>"><i class="fa fa-github-square"></i></a>
         <span class="score"><%= row[:stats][:score] %></span>
@@ -13,6 +14,7 @@
 </div>
 <script>
 var player_one = "<%= @player_one %>";
-<%= "var preload = #{hollow.to_json};" if @preload %>
+<%= "var preload = #{hollow.to_json};\n" if @preload %>
+<%= "var max = #{@preload ? @preload.map { |x| x[:stats][:score] }.max : 0};\n"%>
 </script>
 <script type="text/javascript" src="/custom/main.js"></script>

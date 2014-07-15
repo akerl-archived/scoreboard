@@ -30,11 +30,16 @@ function create_row(data) {
     var today = data.stats.today;
     var board = document.getElementById('scoreboard');
 
+    if (score > max) {
+        max = score;
+    }
+
     var row = document.createElement('div');
     row.className = 'row player';
     row.setAttribute('data-name', user);
     row.setAttribute('data-score', score);
 
+    new_element(row, 'span', 'bar', '');
     new_link('/' + user, row, 'span', 'name', user);
     new_link('https://github.com/' + user, row, 'i', 'fa fa-github-square', '');
     new_element(row, 'span', 'score', score);
@@ -53,11 +58,30 @@ function create_row(data) {
     if (counter = size) NProgress.done();
 }
 
+function update_bar(element) {
+    //var size = element.getAttribute('data-score') / max * element.clientWidth;
+    var size = element.clientWidth;
+    var bar = element.getElementsByClassName('bar')[0];
+    bar.style.left = size + 'px';
+}
+
+function update_all_bars() {
+    var players = $('.player');
+    var length = players.length;
+    for (i = 0; i < length; i++) {
+        update_bar(players[i]);
+    }
+}
+
 $(document).ready(function(){
     if (typeof preload === 'undefined') {
         $.ajax({url:'/' + player_one + '/following', success:handle_followers});
     } else if ( preload.length != 0 ) {
         handle_followers(preload);
     }
+    update_all_bars();
 });
 
+$(window).resize(function() {
+    update_all_bars();
+});
