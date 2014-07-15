@@ -59,18 +59,13 @@ function create_row(data) {
 }
 
 function update_bar(element) {
-    //var size = element.getAttribute('data-score') / max * element.clientWidth;
-    var size = element.clientWidth;
-    var bar = element.getElementsByClassName('bar')[0];
-    bar.style.left = size + 'px';
+    var size = element.attr('data-score') / max * element.width();
+    var bar = element.children('.bar');
+    bar.animate({left: size});
 }
 
 function update_all_bars() {
-    var players = $('.player');
-    var length = players.length;
-    for (i = 0; i < length; i++) {
-        update_bar(players[i]);
-    }
+    $('.player').each(function() { update_bar($(this)) });
 }
 
 $(document).ready(function(){
