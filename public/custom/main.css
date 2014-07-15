@@ -2,6 +2,10 @@ body {
     margin-top: 60px;
 }
 
+a {
+    color: #000;
+}
+
 .navbar label, .navbar input {
     font-size: 1.25em;
     line-height: 30px;

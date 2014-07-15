@@ -45,7 +45,7 @@ def load_players(name)
   players.map { |p| CACHE.include?(p) ? load_stats(p) : { user: p } }
 end
 
-get %r{/(\w+)/stats$} do |name|
+get %r{/([\w-]+)/stats$} do |name|
   begin
     name = params[:captures].first
     headers 'Content-Type' => 'application/json'
@@ -55,7 +55,7 @@ get %r{/(\w+)/stats$} do |name|
   end
 end
 
-get %r{^/(\w+)/following$} do |name|
+get %r{^/([\w-]+)/following$} do |name|
   begin
     name = params[:captures].first
     headers 'Content-Type' => 'application/json'
@@ -65,7 +65,7 @@ get %r{^/(\w+)/following$} do |name|
   end
 end
 
-get %r{^/(\w+)$} do |name|
+get %r{^/([\w-]+)$} do |name|
   @player_one = params[:captures].first
   @preload = load_players(name) if CACHE.include? 'player#' + name
   @title = "Scoreboard for #{name}"
@@ -74,7 +74,7 @@ end
 
 get '/' do
   name = params[:name] || CONFIG['username']
-  halt 500, erb(:fail) unless name.match '^\w*$'
+  halt 500, erb(:fail) unless name.match '^[\w-]*$'
   redirect to("/#{name}")
 end
 

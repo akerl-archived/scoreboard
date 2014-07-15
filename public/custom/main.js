@@ -10,6 +10,13 @@ function add_player(data) {
     ('stats' in data) ? create_row(data) : $.ajax({url:'/' + data.user + '/stats', success:create_row});
 }
 
+function new_link(url, target, type, new_class, contents) {
+    var link = document.createElement('a');
+    link.setAttribute('href', link);
+    new_element(link, type, new_class, contents);
+    target.appendChild(link);
+}
+
 function new_element(target, type, new_class, contents) {
     var element = document.createElement(type);
     element.className = new_class;
@@ -28,8 +35,8 @@ function create_row(data) {
     row.setAttribute('data-name', user);
     row.setAttribute('data-score', score);
 
-    new_element(row, 'span', 'name', user);
-    new_element(row, 'i', 'fa fa-github-square', '');
+    new_link('/' + user, row, 'span', 'name', user);
+    new_link('https://github.com/' + user, row, 'i', 'fa fa-github-square', '');
     new_element(row, 'span', 'score', score);
 
     if (today == 1) new_element(row, 'i', 'fa fa-check-square', '');
