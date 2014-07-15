@@ -71,7 +71,7 @@ end
 
 get '/' do
   name = params[:name] || CONFIG['username']
-  halt 500 unless name.match '\w+'
+  halt 500, erb(:fail) unless name.match '^\w*$'
   redirect to("/#{name}")
 end
 
