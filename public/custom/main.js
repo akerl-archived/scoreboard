@@ -1,4 +1,6 @@
 function handle_followers(data) {
+    NProgress.configure({ trickle: false, showSpinner: false });
+    NProgress.start();
     size = data.length;
     counter = 0;
     for (var i in data) add_player(data[i]);
@@ -45,11 +47,9 @@ function create_row(data) {
 }
 
 $(document).ready(function(){
-    NProgress.configure({ trickle: false, showSpinner: false });
-    NProgress.start();
     if (typeof preload === 'undefined') {
         $.ajax({url:'/' + player_one + '/following', success:handle_followers});
-    } else {
+    } else if ( preload.length != 0 ) {
         handle_followers(preload);
     }
 });
