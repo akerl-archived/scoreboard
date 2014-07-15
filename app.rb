@@ -74,3 +74,11 @@ get '/' do
   halt 500 unless name.match '\w+'
   redirect to("/#{name}")
 end
+
+not_found do
+  erb :fail
+end
+
+error do
+  erb :fail
+end

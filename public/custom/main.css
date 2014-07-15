@@ -5,6 +5,13 @@ body {
 .navbar label, .navbar input {
     font-size: 1.25em;
     line-height: 30px;
+    margin: 0 5px;
+}
+
+@media (max-width: 600px) {
+    .navbar label {
+        display: none;
+    }
 }
 
 .player .name, .player .score {
@@ -17,4 +24,9 @@ body {
     font-size: 1.5em;
     line-height: 1em;
     vertical-align: -10%;
+}
+
+.alert {
+    text-align: center;
+    margin: 0 10%;
 }
