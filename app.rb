@@ -64,7 +64,7 @@ end
 
 get '/:name' do |name|
   @player_one = name
-  @preload = load_players(name).to_json if CACHE.include? 'player#' + name
+  @preload = load_players(name) if CACHE.include? 'player#' + name
   @title = "Scoreboard for #{name}"
   erb :scoreboard
 end

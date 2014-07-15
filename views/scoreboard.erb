@@ -1,6 +1,17 @@
+<% full, hollow = @preload.partition { |x| x[:stats] } if @preload %>
 <div class="container" id="scoreboard">
+  <% if full %>
+    <% full.sort_by! { |x| x[:stats][:score] }.reverse.each do |row| %>
+      <div class="row player" data-name="<%= row[:user] %>" data-score="<%= row[:stats][:score] %>">
+        <span class="name"><%= row[:user] %></span>
+        <i class="fa fa-github-square"></i>
+        <span class="score"><%= row[:stats][:score] %></span>
+        <%= '<i class="fa fa-check-square"></i>' unless row[:stats][:today].zero? %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
 <script>
 var player_one = "<%= @player_one %>";
-<%= "var preload = #{@preload};" if @preload%>
+<%= "var preload = #{hollow.to_json};" if @preload %>
 </script>
