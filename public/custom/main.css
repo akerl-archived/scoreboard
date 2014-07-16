@@ -22,6 +22,10 @@ a {
     margin: 0 5px;
 }
 
+.navbar input {
+    width: 8em;
+}
+
 .navbar .button {
     font-size: 1.25em;
     line-height: 1em;
