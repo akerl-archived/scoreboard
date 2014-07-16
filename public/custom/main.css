@@ -86,5 +86,9 @@ overflow: hidden;
     top: 0;
     left: 0;
     position: absolute;
+    -webkit-transition: left 1s ease-in-out;
+    -moz-transition: left 1s ease-in-out;
+    -o-transition: left 1s ease-in-out;
+    transition: left 1s ease-in-out;
 }
 

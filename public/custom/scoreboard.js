@@ -54,7 +54,7 @@ function create_row(data) {
 
 function update_bar(element) {
     var size = element.attr('data-score') / max * element.width();
-    $(element.children('.slider')[0]).animate({left: size});
+    $(element.children('.slider')[0]).css('left', size);
 }
 
 function resize_all_bars() {
