@@ -9,13 +9,16 @@ scoreboard
 
 Sinatra app to show a user's Github streak compared to the people they follow.
 
-## Installation
+## Usage
 
     git clone git://github.com/akerl/scoreboard
     cd scoreboard
     bundle install
-    cp config.yaml.example config.yaml # edit with valid creds 
-    ruby app.rb
+    SB_USERNAME=jimbo SB_PASSWORD=5b1TQIDWNHbNdCqv9VrTybz ruby app.rb
+
+If you want to use the alternate Redis backend for local caching, set the SB\_BACKEND environment variable to "redis". If you have options to pass to Redis, set SB\_REDIS to a JSON object of the options.
+
+The Redis support uses [redisstore](https://github.com/akerl/redisstore), which in turn uses [redis-rb](https://github.com/redis/redis-rb).
 
 ## License
 

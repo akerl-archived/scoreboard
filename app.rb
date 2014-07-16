@@ -6,10 +6,16 @@ require 'githubstats'
 require 'basiccache'
 require 'json'
 
-CONFIG = YAML.load open('config.yaml').read
+CONFIG = {
+  username: ENV['SB_USERNAME'],
+  password: ENV['SB_PASSWORD'],
+  backend: ENV['SB_BACKEND'],
+  redis_opts: ENV['SB_REDIS']
+}
+
 CLIENT = Octokit::Client.new(
-  login: CONFIG['username'],
-  password: CONFIG['password'],
+  login: CONFIG[:username],
+  password: CONFIG[:password],
   auto_paginate: true
 )
 
@@ -20,9 +26,9 @@ API_CACHE = Faraday::RackBuilder.new do |builder|
 end
 Octokit.middleware = API_CACHE
 
-if CONFIG.include? 'redis'
+if CONFIG[:backend] == 'redis'
   require 'redisstore'
-  args = CONFIG['redis'].is_a?(Hash) ? CONFIG['redis'] : {}
+  args = CONFIG[:redis_opts] ? JSON.parse(CONFIG[:redis_opts]) : {}
   STORE = RedisStore.new(args)
 else
   STORE = BasicCache::Store.new
@@ -73,7 +79,7 @@ get %r{^/([\w-]+)$} do |name|
 end
 
 get '/' do
-  name = params[:name] || CONFIG['username']
+  name = params[:name] || CONFIG[:username]
   halt 500, erb(:fail) unless name.match '^[\w-]*$'
   redirect to("/#{name}")
 end
