@@ -1,13 +1,25 @@
 <% full, hollow = @preload.partition { |x| x[:stats] } if @preload %>
-<div class="container" id="scoreboard">
+<div class="column" id="players">
   <% if full %>
     <% full.sort_by! { |x| x[:stats][:score] }.reverse.each do |row| %>
       <div class="row player" data-name="<%= row[:user] %>" data-score="<%= row[:stats][:score] %>">
-        <span class="bar"></span>
-        <a href="/<%= row[:user] %>"><span class="name"><%= row[:user] %></span></a>
-        <a href="https://github.com/<%= row[:user] %>"><i class="fa fa-github-square"></i></a>
         <span class="score"><%= row[:stats][:score] %></span>
-        <%= '<i class="fa fa-check-square"></i>' unless row[:stats][:today].zero? %>
+        <a href="https://github.com/<%= row[:user] %>">
+          <i class="fa fa-github-square"></i>
+        </a>
+        <a href="/<%= row[:user] %>">
+          <span class="name"><%= row[:user] %></span>
+        </a>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class="column" id="bars">
+  <% if full %>
+    <% full.sort_by! { |x| x[:stats][:score] }.reverse.each do |row| %>
+      <div class="row bar" data-name="<%= row[:user] %>" data-score="<%= row[:stats][:score] %>">
+        <%= '<i class="fa fa-check-square"></i>' if row[:stats][:today] == 1 %>
+        <div class="slider"></div>
       </div>
     <% end %>
   <% end %>
@@ -17,4 +29,4 @@ var player_one = "<%= @player_one %>";
 <%= "var preload = #{hollow.to_json};\n" if @preload %>
 <%= "var max = #{@preload ? @preload.map { |x| x[:stats][:score] }.max : 0};\n"%>
 </script>
-<script type="text/javascript" src="/custom/main.js"></script>
+<script type="text/javascript" src="/custom/scoreboard.js"></script>

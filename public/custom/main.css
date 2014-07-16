@@ -22,13 +22,52 @@ a {
     margin: 0 5px;
 }
 
+.navbar .button {
+    font-size: 1.25em;
+    line-height: 1em;
+    padding: 5px 20px;
+}
+
 @media (max-width: 600px) {
     .navbar label {
         display: none;
     }
 }
 
-.player {
+#content {
+    margin: 0 15%;
+}
+
+.alert {
+    text-align: center;
+    margin: 0 10%;
+}
+
+#players {
+    float: left;
+}
+
+#bars {
+    float: left;
+}
+
+.player, .bar {
+    margin-bottom: 5px;
+}
+
+.player .name, .player .score {
+    font-size: 1.15em;
+    padding: 10px;
+    line-height: 1.5em;
+}
+
+.player i, .bar i {
+    font-size: 1.5em;
+    line-height: 1em;
+    vertical-align: -10%;
+}
+
+/*.player {
     background: #999;
     overflow: hidden;
     position: relative;
@@ -56,8 +95,4 @@ a {
     line-height: 1em;
     vertical-align: -10%;
 }
-
-.alert {
-    text-align: center;
-    margin: 0 10%;
-}
+*/
