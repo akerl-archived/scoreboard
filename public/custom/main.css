@@ -48,7 +48,7 @@ a {
 }
 
 #bars {
-    float: left;
+overflow: hidden;
 }
 
 .player, .bar {
@@ -67,13 +67,13 @@ a {
     vertical-align: -10%;
 }
 
-/*.player {
-    background: #999;
+.bar {
+    background: #44a340;
     overflow: hidden;
     position: relative;
 }
 
-.bar {
+.slider {
     overflow: hidden;
     position: relative;
     background: #FAF5EA;
@@ -84,15 +84,3 @@ a {
     position: absolute;
 }
 
-.player .name, .player .score {
-    font-size: 1.15em;
-    padding: 10px;
-    line-height: 1.5em;
-}
-
-.player i {
-    font-size: 1.5em;
-    line-height: 1em;
-    vertical-align: -10%;
-}
-*/

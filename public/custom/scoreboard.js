@@ -54,13 +54,21 @@ function create_row(data) {
 
 function update_bar(element) {
     var size = element.attr('data-score') / max * element.width();
-    element.animate({left: size});
+    $(element.children('.slider')[0]).animate({left: size});
+}
+
+function resize_all_bars() {
+    $('.bar').each(function() { update_bar($(this)) });
+}
+
+function sort_all_bars() {
+    $('#players').divsort();
+    $('#bars').divsort();
 }
 
 function update_all_bars() {
-    $('#players').divsort();
-    $('#bars').divsort();
-    $('.bar').each(function() { update_bar($(this)) });
+    sort_all_bars();
+    resize_all_bars();
 }
 
 function build_scoreboard() {
@@ -81,6 +89,6 @@ jQuery.fn.divsort = function() {
 }
 
 $(document).ready(function() { build_scoreboard(); });
-$(window).resize(function() { update_all_bars(); });
+$(window).resize(function() { resize_all_bars(); });
 $(document).ajaxStop(function() { NProgress.done(); update_all_bars(); });
 
