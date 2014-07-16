@@ -26,12 +26,17 @@ API_CACHE = Faraday::RackBuilder.new do |builder|
 end
 Octokit.middleware = API_CACHE
 
-if CONFIG[:backend] == 'redis'
+case CONFIG[:backend]
+when nil
+  STORE = BasicCache::Store.new
+when 'redis'
   require 'redisstore'
   args = CONFIG[:redis_opts] ? JSON.parse(CONFIG[:redis_opts]) : {}
   STORE = RedisStore.new(args)
+when 'null'
+  STORE = BasicCache::NullStore.new
 else
-  STORE = BasicCache::Store.new
+  fail "Unknown backend specified: #{CONFIG[:backend]}"
 end
 
 CACHE = BasicCache::TimeCache.new(lifetime: 900, store: STORE)
@@ -79,6 +84,7 @@ get %r{^/([\w-]+)$} do |name|
 end
 
 get '/' do
+  p CONFIG
   name = params[:name] || CONFIG[:username]
   halt 500, erb(:fail) unless name.match '^[\w-]*$'
   redirect to("/#{name}")
