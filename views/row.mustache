@@ -1,0 +1,14 @@
+<div class="player" data-name="{{name}}" data-score="{{score}}">
+    <span class="meter" style="width: 60%">
+        <span class="score">{{score}}</span>
+        <a href="https://github.com/{{name}}">
+            <i class="fa fa-github-square"></i>
+        </a>
+        <a href="/{{name}}">
+            <span class="name">{{name}}</span>
+        </a>
+        {{#today}}
+        <i class="fa fa-check-square"></i>
+        {{/today}}
+    </span>
+</div>

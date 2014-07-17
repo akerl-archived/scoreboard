@@ -5,6 +5,7 @@ require 'yaml'
 require 'githubstats'
 require 'basiccache'
 require 'json'
+require 'mustache'
 
 CONFIG = {
   username: ENV['SB_USERNAME'],
@@ -41,11 +42,28 @@ end
 
 CACHE = BasicCache::TimeCache.new(lifetime: 900, store: STORE)
 
+TEMPLATE = File.read('views/row.mustache')
+
+class Row < Mustache
+  attr_reader :name, :score, :today
+
+  def initialize(params)
+    @template = TEMPLATE
+    @name = params[:name]
+    @score = params[:score]
+    @today = params[:today]
+  end
+end
+
+def load_row(data)
+  Row.new(data).render
+end
+
 def load_stats(name)
   CACHE.cache(name) do
     streak = GithubStats.new(name).streak
-    today = streak.last && streak.last.date == Date.today ? 1 : 0
-    { user: name, score: streak.length, today: today }
+    today = streak.last && streak.last.date == Date.today
+    { name: name, score: streak.length, today: today }
   end
 end
 
@@ -53,7 +71,7 @@ def load_players(name)
   players = CACHE.cache('player#' + name) do
     CLIENT.following(name).map(&:login) << name
   end
-  players.map { |p| CACHE.include?(p) ? load_stats(p) : { user: p } }
+  players.map { |p| CACHE.include?(p) ? load_stats(p) : { name: p } }
 end
 
 get %r{/([\w-]+)/stats$} do |name|
@@ -84,7 +102,6 @@ get %r{^/([\w-]+)$} do |name|
 end
 
 get '/' do
-  p CONFIG
   name = params[:name] || CONFIG[:username]
   halt 500, erb(:fail) unless name.match '^[\w-]*$'
   redirect to("/#{name}")
