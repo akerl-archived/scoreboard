@@ -6,6 +6,9 @@ gem 'githubstats', '~> 0.2.12'
 gem 'faraday-http-cache', '~> 0.4.0'
 gem 'basiccache', '~> 0.2.1'
 gem 'thin', '~> 1.6.2'
+gem 'bourbon', '~> 4.0.2'
+gem 'neat', '~> 1.6.0'
+gem 'bitters', '~> 0.10.0'
 
 group :development do
   gem 'rubocop', '~> 0.24.0'
