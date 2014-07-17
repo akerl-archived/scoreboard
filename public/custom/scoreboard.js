@@ -25,8 +25,8 @@ function new_element(target, type, new_class, contents) {
 
 function create_row(data) {
     var user = data.user;
-    var score = data.stats.score;
-    var today = data.stats.today;
+    var score = data.score;
+    var today = data.today;
     var player_div = $('#players');
     var bar_div = $('#bars');
 
