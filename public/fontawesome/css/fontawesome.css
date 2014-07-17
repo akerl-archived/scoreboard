@@ -78,3 +78,6 @@
 
 .fa-github-square:before { content: '\e800'; } /* '' */
 .fa-check-square:before { content: '\e801'; } /* '' */
+.fa-home:before { content: '\e802'; } /* '' */
+.fa-fork:before { content: '\e803'; } /* '' */
+
