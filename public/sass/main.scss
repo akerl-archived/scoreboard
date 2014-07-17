@@ -91,9 +91,22 @@ header.navigation {
     position: relative; 
     display: inline-block;
     
-    @include media($large-screen) {
+    @include media($medium-screen) {
       width: 20em;
     }    
   }
 }
 
+.github-fork-ribbon {
+    display: none;
+    @include media($medium-screen) {
+        display: inline;
+    }
+}
+
+.error {
+    @include flash(gray);
+    text-align: center;
+    border-radius: 30px;
+    margin: 5%;
+}

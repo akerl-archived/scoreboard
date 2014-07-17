@@ -327,6 +327,26 @@ header.navigation {
         header.navigation .search-bar .search-and-submit button[type=submit]:disabled {
           opacity: 0.5;
           cursor: not-allowed; }
-    @media screen and (min-width: 53.75em) {
+    @media screen and (min-width: 40em) {
       header.navigation .search-bar {
         width: 20em; } }
+
+.github-fork-ribbon {
+  display: none; }
+  @media screen and (min-width: 40em) {
+    .github-fork-ribbon {
+      display: inline; } }
+
+.error {
+  background: gray;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 0.75em;
+  padding: 0.75em;
+  text-align: center;
+  border-radius: 30px;
+  margin: 5%; }
+  .error a {
+    color: black; }
+    .error a:hover {
+      color: black; }
