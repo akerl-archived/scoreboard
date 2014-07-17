@@ -2,17 +2,20 @@
 @import 'base/base';
 @import 'neat/neat';
 
+$background: lighten($dark-gray, 15);
+
 body {
     margin: 0;
     padding: 0;
+    background: $background;
 }
 
 header.navigation {
   $navigation-padding: 1em;
-  $navigation-background: $dark-gray;
   $navigation-color: transparentize(white, 0.3);
   $navigation-color-hover: white;
   $navigation-height: 60px;
+  $navigation-background: darken($background, 15);
   $navigation-search-background: lighten($navigation-background, 5);
   $navigation-search-border: 1px solid darken($navigation-background, 5);
 
@@ -32,11 +35,11 @@ header.navigation {
   .logo {
     float: left;    
     max-height: $navigation-height;
-    padding-left: $navigation-padding;
 
-    img {
-      max-height: $navigation-height;
-      padding: .8em 0;
+    i {
+      font-size: $navigation-height;
+      line-height: $navigation-height;
+      color: green;
     }
   }
 

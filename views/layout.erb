@@ -15,13 +15,15 @@
 <header class="navigation">
   <div class="navigation-wrapper">
     <a href="http://akerl.org" class="logo">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Home">
+      <i class="fa fa-home"></i>
     </a>
     <div class="navigation-tools">
       <div class="search-bar">
         <div class="search-and-submit">
-          <input type="search" placeholder="GitHub user" />
-          <button type="submit">Show!</button>
+          <form action="/" method="GET">
+            <input id="name" name="name" type="search" placeholder="GitHub user" />
+            <button type="submit">Show!</button>
+          </form>
         </div>
       </div>
     </div>
