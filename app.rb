@@ -44,6 +44,8 @@ CACHE = BasicCache::TimeCache.new(lifetime: 900, store: STORE)
 
 TEMPLATE = File.read('views/row.mustache')
 
+##
+# Fancy mustache template
 class Row < Mustache
   attr_reader :name, :score, :today
 
