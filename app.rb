@@ -61,9 +61,8 @@ end
 
 def load_stats(name)
   CACHE.cache(name) do
-    streak = GithubStats.new(name).streak
-    today = streak.last && streak.last.date == Date.today
-    { name: name, score: streak.length, today: today }
+    stats = GithubStats.new(name)
+    { name: name, score: stats.streak.length, today: stats.today.nonzero? }
   end
 end
 
