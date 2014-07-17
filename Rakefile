@@ -10,4 +10,11 @@ RuboCop::RakeTask.new(:rubocop) do |task|
   task.fail_on_error = true
 end
 
+desc 'Install SASS tools'
+task :install do
+  Dir.chdir('public/sass') do
+    %w(bourbon neat bitters).each { |x| system x, 'install' }
+  end
+end
+
 task default: [:spec, :rubocop]

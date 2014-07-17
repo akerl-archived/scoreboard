@@ -3,4 +3,6 @@ coverage/
 .coveralls.yml
 .bundle
 Gemfile.lock
-config.yaml
+public/sass/bourbon
+public/sass/neat
+public/sass/base
