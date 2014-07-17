@@ -6,3 +6,4 @@ Gemfile.lock
 public/sass/bourbon
 public/sass/neat
 public/sass/base
+.sass-cache
