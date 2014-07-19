@@ -8,6 +8,7 @@
 </div>
 <script>
 var player_one = "<%= @player_one %>";
+var template = "<%= TEMPLATE.gsub('"','\"').rstrip %>";
 <%= "var preload = #{hollow.to_json};\n" if @preload %>
 <%= "var max = #{@preload ? @preload.map { |x| x.fetch(:score, 0) }.max : 0};\n"%>
 </script>
