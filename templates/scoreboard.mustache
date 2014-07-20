@@ -1,0 +1,14 @@
+<div id="scoreboard">
+    {{#full_rows}}
+        {{item}}
+    {{/full_rows}}
+</div>
+<script>
+var player_one = "{{player_one}}";
+var template = "{{{row_template}}}";
+{{#preload}}
+var preload = {{partial_rows.to_json}};
+{{/preload}}
+var max = {{max}};
+</script>
+<script type="text/javascript" src="/custom/scoreboard.js"></script>
