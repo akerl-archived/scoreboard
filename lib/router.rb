@@ -4,6 +4,8 @@ require 'mustache/sinatra'
 require 'githubstats'
 require 'json'
 
+##
+# The real deal, yo
 class App < Sinatra::Base
   register Mustache::Sinatra
   require_relative '../views/layout.rb'
@@ -34,10 +36,7 @@ class App < Sinatra::Base
     end
   end
 
-  set :mustache, {
-    views: 'views',
-    templates: 'templates'
-  }
+  set :mustache, views: 'views', templates: 'templates'
 
   get %r{/([\w-]+)/stats$} do |name|
     begin
@@ -67,7 +66,7 @@ class App < Sinatra::Base
 
   get '/' do
     name = params[:name] || OPTIONS.username
-    halt 500, mustache(:fail) unless name.match /^[\w-]*$/
+    halt 500, mustache(:fail) unless name.match(/^[\w-]*$/)
     redirect to("/#{name}")
   end
 

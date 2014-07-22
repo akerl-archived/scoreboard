@@ -17,13 +17,15 @@ end
 CACHE_STORES = {
   'default' => BasicCache::Store,
   'null' => BasicCache::NullStore,
-  'redis' => RedisStore::Store,
+  'redis' => RedisStore::Store
 }
 
 DEFAULT_OPTIONS = {
   store: 'default'
 }
 
+##
+# Define options for application
 class Options
   attr_reader :username, :cache, :client
 
