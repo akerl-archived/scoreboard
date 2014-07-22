@@ -14,11 +14,11 @@ Sinatra app to show a user's Github streak compared to the people they follow.
     git clone git://github.com/akerl/scoreboard
     cd scoreboard
     bundle install
-    SB_USERNAME=jimbo SB_PASSWORD=5b1TQIDWNHbNdCqv9VrTybz thin config.ru
+    SB_USERNAME=jimbo SB_PASSWORD=5b1TQIDWNHbNdCqv9VrTybz thin start
 
 To start a dev server, use shotgun (it reloads files after your changes):
 
-    SB_USERNAME=jimbo SB_PASSWORD=5b1TQIDWNHbNdCqv9VrTybz shotgun config.ru
+    SB_USERNAME=jimbo SB_PASSWORD=5b1TQIDWNHbNdCqv9VrTybz shotgun
 
 If you want to use the alternate Redis backend for local caching, set the SB\_BACKEND environment variable to "redis". If you have options to pass to Redis, set SB\_REDIS to a JSON object of the options.
 
