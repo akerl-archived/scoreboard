@@ -18,4 +18,5 @@ group :development do
   gem 'coveralls', '~> 0.7.0'
   gem 'rspec', '~> 3.0.0'
   gem 'fuubar', '~> 2.0.0.rc1'
+  gem 'shotgun', '~> 0.9'
 end
