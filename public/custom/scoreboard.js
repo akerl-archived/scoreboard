@@ -2,57 +2,15 @@ function handle_followers(data) {
     NProgress.configure({ trickle: false, showSpinner: false });
     NProgress.start();
     step = 100 / data.length;
-    for (var i in data) {
-        console.log(data[i]);
-        add_player(data[i]);
-    }
+    for (var i in data) add_player(data[i])
 }
 
 function add_player(data) {
     $.ajax({url:'/' + data.name + '/stats', success:create_row});
 }
 
-function new_link(url, target, type, new_class, contents) {
-    var link = $(document.createElement('a'));
-    link.attr('href', url);
-    new_element(link, type, new_class, contents);
-    link.appendTo(target);
-}
-
-function new_element(target, type, new_class, contents) {
-    var element = $(document.createElement(type));
-    element.addClass(new_class);
-    element.text(contents);
-    element.appendTo(target);
-}
-
 function create_row(data) {
-    var name = data.name;
-    var score = data.score;
-    var today = data.today;
-    var player_div = $('#players');
-    var bar_div = $('#bars');
-
-    if (score > max) max = score;
-
-    var player_row = $(document.createElement('div'));
-    player_row.addClass('row player')
-        .attr('data-name', name)
-        .attr('data-score', score)
-        .appendTo(player_div);
-    new_element(player_row, 'span', 'score', score);
-    new_link('https://github.com/' + name, player_row, 'i', 'fa fa-github-square', '');
-    new_link('/' + name, player_row, 'span', 'name', name);
-
-    var bar_row = $(document.createElement('div'));
-    bar_row.addClass('row bar')
-        .attr('data-name', name)
-        .attr('data-score', score)
-        .appendTo(bar_div);
-    if (today == 1) new_element(bar_row, 'i', 'fa fa-check-square', '');
-    new_element(bar_row, 'div', 'slider', '');
-
-    NProgress.inc(step);
+    console.log(data);
 }
 
 function update_bar(element) {
