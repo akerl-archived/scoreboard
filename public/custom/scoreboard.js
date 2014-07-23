@@ -2,7 +2,10 @@ function handle_followers(data) {
     NProgress.configure({ trickle: false, showSpinner: false });
     NProgress.start();
     step = 100 / data.length;
-    for (var i in data) add_player(data[i]);
+    for (var i in data) {
+        console.log(data[i]);
+        add_player(data[i]);
+    }
 }
 
 function add_player(data) {

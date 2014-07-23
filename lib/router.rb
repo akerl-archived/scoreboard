@@ -24,7 +24,11 @@ class App < Sinatra::Base
     def load_stats(name)
       CACHE.cache(name) do
         stats = GithubStats.new(name)
-        { name: name, score: stats.streak.length, today: stats.today.nonzero? }
+        {
+          name: name,
+          score: stats.streak.length || 0,
+          today: stats.today != 0
+        }
       end
     end
 
