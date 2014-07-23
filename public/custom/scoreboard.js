@@ -10,7 +10,9 @@ function add_player(data) {
 }
 
 function create_row(data) {
-    console.log(data);
+    var scoreboard = $('#scoreboard');
+    var tmp = Mustache.render(template, data);
+    scoreboard.append(tmp);
 }
 
 function update_bar(element) {
