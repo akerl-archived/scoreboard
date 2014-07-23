@@ -30,7 +30,7 @@ class Options
   attr_reader :username, :cache, :client
 
   def initialize(options = {})
-    @options = options.merge DEFAULT_OPTIONS
+    @options = DEFAULT_OPTIONS.merge options
     @username = @options[:username]
     @cache = _cache
     @client = _client
