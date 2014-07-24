@@ -3,6 +3,10 @@ class App
     class Scoreboard < Layout
       attr_reader :player_one, :full_rows, :partial_rows
 
+      def initialize
+        @full_rows, @hollow_rows = @preload.partition { |x| x[:score] }
+      end
+
       def row_template
         ROW_TEMPLATE.gsub('"', '\"').gsub("\n",'')
       end

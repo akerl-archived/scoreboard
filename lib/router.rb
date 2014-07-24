@@ -63,7 +63,6 @@ class App < Sinatra::Base
   get %r{^/([\w-]+)$} do |name|
     @player_one = name
     @preload = CACHE.include?('player#' + name) ? load_players(name) : []
-    @full_rows, @hollow_rows = @preload.partition { |x| x[:score] }
     @title = "Scoreboard for #{name}"
     mustache :scoreboard
   end
