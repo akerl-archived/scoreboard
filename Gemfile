@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'octokit', '~> 3.2.0'
+gem 'octokit', '~> 3.3.0'
 gem 'sinatra', '~> 1.4.4'
 gem 'githubstats', '~> 0.2.12'
 gem 'faraday-http-cache', '~> 0.4.0'
