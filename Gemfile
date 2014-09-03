@@ -13,7 +13,7 @@ gem 'bitters', '~> 0.10.0'
 gem 'mustache', '~> 0.99.6'
 
 group :development do
-  gem 'rubocop', '~> 0.25.0'
+  gem 'rubocop', '~> 0.26.0'
   gem 'rake', '~> 10.3.2'
   gem 'coveralls', '~> 0.7.1'
   gem 'rspec', '~> 3.0.0'
