@@ -8,7 +8,7 @@ gem 'basiccache', '~> 0.2.2'
 gem 'redisstore', '~> 0.1.2'
 gem 'thin', '~> 1.6.2'
 gem 'bourbon', '~> 4.0.2'
-gem 'neat', '~> 1.6.0'
+gem 'neat', '~> 1.7.0'
 gem 'bitters', '~> 0.10.0'
 gem 'mustache', '~> 0.99.6'
 
