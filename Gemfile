@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'octokit', '~> 3.4.0'
+gem 'octokit', '~> 3.5.2'
 gem 'sinatra', '~> 1.4.5'
 gem 'githubstats', '~> 0.2.14'
 gem 'faraday-http-cache', '~> 0.4.2'
@@ -13,7 +13,7 @@ gem 'bitters', '~> 0.10.0'
 gem 'mustache', '~> 0.99.6'
 
 group :development do
-  gem 'rubocop', '~> 0.26.0'
+  gem 'rubocop', '~> 0.27.0'
   gem 'rake', '~> 10.3.2'
   gem 'coveralls', '~> 0.7.1'
   gem 'rspec', '~> 3.1.0'
