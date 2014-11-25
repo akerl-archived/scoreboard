@@ -14,7 +14,7 @@ gem 'mustache', '~> 0.99.6'
 
 group :development do
   gem 'rubocop', '~> 0.27.0'
-  gem 'rake', '~> 10.3.2'
+  gem 'rake', '~> 10.4.0'
   gem 'coveralls', '~> 0.7.1'
   gem 'rspec', '~> 3.1.0'
   gem 'fuubar', '~> 2.0.0'
