@@ -2,7 +2,6 @@ pkg/*.gem
 coverage/
 .coveralls.yml
 .bundle
-Gemfile.lock
 public/sass/bourbon
 public/sass/neat
 public/sass/base
