@@ -10,7 +10,7 @@ GEM
       bourbon (>= 3.2)
       sass (>= 3.2)
       thor
-    bourbon (4.0.2)
+    bourbon (4.1.0)
       sass (~> 3.3)
       thor
     coveralls (0.7.2)
@@ -111,7 +111,7 @@ PLATFORMS
 DEPENDENCIES
   basiccache (~> 0.2.2)
   bitters (~> 0.10.0)
-  bourbon (~> 4.0.2)
+  bourbon (~> 4.1.0)
   coveralls (~> 0.7.1)
   faraday-http-cache (~> 0.4.2)
   fuubar (~> 2.0.0)
