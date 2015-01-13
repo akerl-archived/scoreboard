@@ -10,7 +10,7 @@ GEM
       bourbon (>= 3.2)
       sass (>= 3.2)
       thor
-    bourbon (4.1.0)
+    bourbon (4.1.1)
       sass (~> 3.3)
       thor
     coveralls (0.7.2)
