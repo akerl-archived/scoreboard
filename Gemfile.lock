@@ -13,7 +13,7 @@ GEM
     bourbon (4.1.1)
       sass (~> 3.3)
       thor
-    coveralls (0.7.3)
+    coveralls (0.7.8)
       multi_json (~> 1.10)
       rest-client (~> 1.7)
       simplecov (~> 0.9.1)
