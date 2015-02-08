@@ -27,30 +27,31 @@ DEFAULT_OPTIONS = {
 ##
 # Define options for application
 class Options
-  attr_reader :username, :cache, :client
+  attr_reader :username
 
-  def initialize(options = {})
-    @options = DEFAULT_OPTIONS.merge options
+  def initialize(params = {})
+    @options = DEFAULT_OPTIONS.merge params
+    unless CACHE_STORES[@options[:store]]
+      fail "Store backend not found: #{@options[:store]}"
+    end
     @username = @options[:username]
     @cache = _cache
-    @client = _client
+  end
+
+  def client
+    @client ||= Octokit::Client.new(
+      access_token: @options[:token],
+      auto_paginate: true
+    )
+  end
+
+  def cache
+    @cache ||= BasicCache::TimeCache.new(lifetime: 900, store: store)
   end
 
   private
 
-  def _cache
-    unless CACHE_STORES[@options[:store]]
-      fail "Store backend not found: #{@options[:store]}"
-    end
-    store = CACHE_STORES[@options[:store]].new @options[:storeopts]
-    BasicCache::TimeCache.new(lifetime: 900, store: store)
-  end
-
-  def _client
-    Octokit::Client.new(
-      login: @options[:username],
-      password: @options[:password],
-      auto_paginate: true
-    )
+  def store
+    @store ||= CACHE_STORES[@options[:store]].new JSON.load(@options[:storeopts])
   end
 end
