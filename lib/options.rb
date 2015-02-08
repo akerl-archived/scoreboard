@@ -27,15 +27,11 @@ DEFAULT_OPTIONS = {
 ##
 # Define options for application
 class Options
-  attr_reader :username
-
   def initialize(params = {})
     @options = DEFAULT_OPTIONS.merge params
     unless CACHE_STORES[@options[:store]]
       fail "Store backend not found: #{@options[:store]}"
     end
-    @username = @options[:username]
-    @cache = _cache
   end
 
   def client
@@ -47,6 +43,10 @@ class Options
 
   def cache
     @cache ||= BasicCache::TimeCache.new(lifetime: 900, store: store)
+  end
+
+  def default_user
+    @options[:default] || 'akerl'
   end
 
   private

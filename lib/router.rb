@@ -68,7 +68,7 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    name = params[:name] || OPTIONS.username
+    name = params[:name] || OPTIONS.default_user
     halt 500, mustache(:fail) unless name.match(/^[\w-]*$/)
     redirect to("/#{name}")
   end
