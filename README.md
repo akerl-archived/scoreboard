@@ -1,3 +1,5 @@
+**Inactive Project:** Now that almost everybody I was working with ended their GitHub streaks, there's not much use putting further work into this.
+
 scoreboard
 =========
 
