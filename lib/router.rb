@@ -42,7 +42,7 @@ class App < Sinatra::Base
 
   set :mustache, views: 'views', templates: 'templates'
 
-  get %r{/([\w-]+)/stats$} do |name|
+  get %r{\A/([\w-]+)/stats\z} do |name|
     begin
       headers 'Content-Type' => 'application/json'
       load_stats(name).to_json
@@ -51,7 +51,7 @@ class App < Sinatra::Base
     end
   end
 
-  get %r{^/([\w-]+)/following$} do |name|
+  get %r{\A/([\w-]+)/following\z} do |name|
     begin
       headers 'Content-Type' => 'application/json'
       load_players(name).to_json
@@ -60,7 +60,7 @@ class App < Sinatra::Base
     end
   end
 
-  get %r{^/([\w-]+)$} do |name|
+  get %r{\A/([\w-]+)\z} do |name|
     @player_one = name
     @preload = CACHE.include?('player#' + name) ? load_players(name) : []
     @title = "Scoreboard for #{name}"
@@ -69,7 +69,7 @@ class App < Sinatra::Base
 
   get '/' do
     name = params[:name] || OPTIONS.default_user
-    halt 500, mustache(:fail) unless name.match(/^[\w-]*$/)
+    halt 500, mustache(:fail) unless name.match(/\A[\w-]*\z/)
     redirect to("/#{name}")
   end
 
