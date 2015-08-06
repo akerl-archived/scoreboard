@@ -29,9 +29,8 @@ DEFAULT_OPTIONS = {
 class Options
   def initialize(params = {})
     @options = DEFAULT_OPTIONS.merge params
-    unless CACHE_STORES[@options[:store]]
-      fail "Store backend not found: #{@options[:store]}"
-    end
+    return if CACHE_STORES[@options[:store]]
+    fail "Store backend not found: #{@options[:store]}"
   end
 
   def client
@@ -52,6 +51,8 @@ class Options
   private
 
   def store
-    @store ||= CACHE_STORES[@options[:store]].new JSON.load(@options[:storeopts])
+    @store ||= CACHE_STORES[@options[:store]].new(
+      JSON.load(@options[:storeopts])
+    )
   end
 end
