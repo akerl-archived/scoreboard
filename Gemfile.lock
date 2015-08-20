@@ -33,7 +33,7 @@ GEM
     fuubar (2.0.0)
       rspec (~> 3.0)
       ruby-progressbar (~> 1.4)
-    githubstats (1.0.1)
+    githubstats (1.1.0)
       basiccache (~> 1.0.0)
       curb (~> 0.8.6)
       nokogiri (~> 1.6.5)
@@ -128,7 +128,7 @@ DEPENDENCIES
   coveralls (~> 0.8.0)
   faraday-http-cache (~> 1.2.0)
   fuubar (~> 2.0.0)
-  githubstats (~> 1.0.0)
+  githubstats (~> 1.1.0)
   mustache-sinatra (~> 1.0.1)
   neat (~> 1.7.0)
   octokit (~> 4.0.0)
@@ -139,3 +139,6 @@ DEPENDENCIES
   shotgun (~> 0.9)
   sinatra (~> 1.4.5)
   thin (~> 1.6.2)
+
+BUNDLED WITH
+   1.10.5
