@@ -10,9 +10,9 @@ GEM
       bourbon (>= 3.2)
       sass (>= 3.2)
       thor
-    bourbon (4.2.3)
+    bourbon (4.2.4)
       sass (~> 3.4)
-      thor
+      thor (~> 0.19)
     coveralls (0.8.2)
       json (~> 1.8)
       rest-client (>= 1.6.8, < 2)
