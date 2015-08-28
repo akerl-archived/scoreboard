@@ -9,7 +9,7 @@ gem 'redisstore', '~> 1.0.0'
 gem 'thin', '~> 1.6.2'
 gem 'bourbon', '~> 4.2.0'
 gem 'neat', '~> 1.7.0'
-gem 'bitters', '~> 1.0.0'
+gem 'bitters', '~> 1.1.0'
 gem 'mustache-sinatra', '~> 1.0.1'
 
 group :development do
