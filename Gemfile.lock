@@ -6,9 +6,9 @@ GEM
     astrolabe (1.3.1)
       parser (~> 2.2)
     basiccache (1.0.0)
-    bitters (1.0.0)
-      bourbon (>= 3.2)
-      sass (>= 3.2)
+    bitters (1.1.0)
+      bourbon (>= 4.2)
+      sass (>= 3.4)
       thor
     bourbon (4.2.4)
       sass (~> 3.4)
@@ -123,7 +123,7 @@ PLATFORMS
 
 DEPENDENCIES
   basiccache (~> 1.0.0)
-  bitters (~> 1.0.0)
+  bitters (~> 1.1.0)
   bourbon (~> 4.2.0)
   coveralls (~> 0.8.0)
   faraday-http-cache (~> 1.2.0)
