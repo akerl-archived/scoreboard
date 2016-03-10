@@ -51,7 +51,7 @@ GEM
     rack-protection (1.5.3)
       rack
     rainbow (2.1.0)
-    rake (10.5.0)
+    rake (11.0.1)
     redis (3.2.2)
     redisstore (1.0.0)
       basiccache (~> 1.0.0)
@@ -114,7 +114,7 @@ DEPENDENCIES
   mustache-sinatra (~> 1.0.1)
   neat (~> 1.7.0)
   octokit (~> 4.3.0)
-  rake (~> 10.5.0)
+  rake (~> 11.0.0)
   redisstore (~> 1.0.0)
   rspec (~> 3.3.0)
   rubocop (~> 0.37.0)
