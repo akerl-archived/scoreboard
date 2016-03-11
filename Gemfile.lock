@@ -15,7 +15,7 @@ GEM
       json
       simplecov
       url
-    curb (0.9.1)
+    curb (0.8.8)
     daemons (1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
@@ -29,7 +29,7 @@ GEM
       ruby-progressbar (~> 1.4)
     githubstats (1.1.0)
       basiccache (~> 1.0.0)
-      curb (~> 0.9.0)
+      curb (~> 0.8.6)
       nokogiri (~> 1.6.5)
     json (1.8.3)
     mini_portile2 (2.0.0)
@@ -51,7 +51,7 @@ GEM
     rack-protection (1.5.3)
       rack
     rainbow (2.1.0)
-    rake (11.0.1)
+    rake (11.1.0)
     redis (3.2.2)
     redisstore (1.0.0)
       basiccache (~> 1.0.0)
@@ -97,7 +97,7 @@ GEM
       rack (~> 1.0)
     thor (0.19.1)
     tilt (2.0.2)
-    unicode-display_width (1.0.1)
+    unicode-display_width (1.0.2)
     url (0.3.2)
 
 PLATFORMS
@@ -114,7 +114,7 @@ DEPENDENCIES
   mustache-sinatra (~> 1.0.1)
   neat (~> 1.7.0)
   octokit (~> 4.3.0)
-  rake (~> 11.0.0)
+  rake (~> 11.1.0)
   redisstore (~> 1.0.0)
   rspec (~> 3.3.0)
   rubocop (~> 0.38.0)
