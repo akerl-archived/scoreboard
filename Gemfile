@@ -17,6 +17,6 @@ group :development do
   gem 'rake', '~> 11.2.0'
   gem 'codecov', '~> 0.1.1'
   gem 'rspec', '~> 3.5.0'
-  gem 'fuubar', '~> 2.0.0'
+  gem 'fuubar', '~> 2.1.0'
   gem 'shotgun', '~> 0.9'
 end
