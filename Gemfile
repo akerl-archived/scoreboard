@@ -14,7 +14,7 @@ gem 'mustache-sinatra', '~> 1.0.1'
 
 group :development do
   gem 'rubocop', '~> 0.49.0'
-  gem 'rake', '~> 12.0.0'
+  gem 'rake', '~> 12.1.0'
   gem 'codecov', '~> 0.1.1'
   gem 'rspec', '~> 3.6.0'
   gem 'fuubar', '~> 2.2.0'
