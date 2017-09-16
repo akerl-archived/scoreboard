@@ -1,7 +1,9 @@
 class App
   module Views
+    ##
+    # Stock layout
     class Layout < Mustache
-      def title 
+      def title
         @title || 'GitHub Scoreboard'
       end
     end

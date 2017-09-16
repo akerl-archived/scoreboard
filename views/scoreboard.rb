@@ -1,5 +1,7 @@
 class App
   module Views
+    ##
+    # Scoreboard layout
     class Scoreboard < Layout
       attr_reader :player_one, :full_rows, :partial_rows
 
@@ -8,7 +10,7 @@ class App
       end
 
       def row_template
-        ROW_TEMPLATE.gsub('"', '\"').gsub("\n",'')
+        ROW_TEMPLATE.gsub('"', '\"').delete("\n")
       end
 
       def max

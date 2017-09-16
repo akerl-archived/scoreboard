@@ -46,7 +46,7 @@ class App < Sinatra::Base
     begin
       headers 'Content-Type' => 'application/json'
       load_stats(name).to_json
-    rescue
+    rescue # rubocop:disable Lint/RescueWithoutErrorClass
       halt 500, '{}'
     end
   end
@@ -55,7 +55,7 @@ class App < Sinatra::Base
     begin
       headers 'Content-Type' => 'application/json'
       load_players(name).to_json
-    rescue
+    rescue # rubocop:disable Lint/RescueWithoutErrorClass
       halt 500, '{}'
     end
   end
@@ -69,7 +69,7 @@ class App < Sinatra::Base
 
   get '/' do
     name = params[:name] || OPTIONS.default_user
-    halt 500, mustache(:fail) unless name.match(/\A[\w-]*\z/)
+    halt 500, mustache(:fail) unless name.match?(/\A[\w-]*\z/)
     redirect to("/#{name}")
   end
 
