@@ -3,7 +3,6 @@
 scoreboard
 =========
 
-[![Dependency Status](https://img.shields.io/gemnasium/akerl/scoreboard.svg)](https://gemnasium.com/akerl/scoreboard)
 [![Code Climate](https://img.shields.io/codeclimate/github/akerl/scoreboard.svg)](https://codeclimate.com/github/akerl/scoreboard)
 [![Coverage Status](https://img.shields.io/coveralls/akerl/scoreboard.svg)](https://coveralls.io/r/akerl/scoreboard)
 [![Build Status](https://img.shields.io/travis/akerl/scoreboard.svg)](https://travis-ci.org/akerl/scoreboard)
