@@ -80,14 +80,14 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    rubocop (0.59.2)
+    rubocop (0.60.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.5, != 2.5.1.1)
       powerpack (~> 0.1)
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
-      unicode-display_width (~> 1.0, >= 1.0.1)
+      unicode-display_width (~> 1.4.0)
     ruby-progressbar (1.10.0)
     sass (3.6.0)
       sass-listen (~> 4.0.0)
@@ -136,10 +136,10 @@ DEPENDENCIES
   rake (~> 12.3.0)
   redisstore (~> 1.0.0)
   rspec (~> 3.8.0)
-  rubocop (~> 0.59.0)
+  rubocop (~> 0.60.0)
   shotgun (~> 0.9)
   sinatra (~> 2.0.0)
   thin (~> 1.6.2)
 
 BUNDLED WITH
-   1.16.3
+   1.17.1
