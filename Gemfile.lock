@@ -130,7 +130,7 @@ DEPENDENCIES
   faraday-http-cache (~> 1.2.0)
   fuubar (~> 2.4.1)
   githubstats (~> 3.0.0)
-  goodcop (~> 0.7.0)
+  goodcop (~> 0.7.1)
   mustache-sinatra (~> 1.0.1)
   neat (~> 1.7.0)
   octokit (~> 4.14.0)
