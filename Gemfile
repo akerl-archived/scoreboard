@@ -18,6 +18,6 @@ group :development do
   gem 'goodcop', '~> 0.7.0'
   gem 'rake', '~> 12.3.0'
   gem 'rspec', '~> 3.8.0'
-  gem 'rubocop', '~> 0.67.2'
+  gem 'rubocop', '~> 0.72.0'
   gem 'shotgun', '~> 0.9'
 end
