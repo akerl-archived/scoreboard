@@ -59,7 +59,7 @@ GEM
     rack-protection (2.0.7)
       rack
     rainbow (3.0.0)
-    rake (12.3.3)
+    rake (13.0.0)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -134,7 +134,7 @@ DEPENDENCIES
   mustache-sinatra (~> 1.0.1)
   neat (~> 1.7.0)
   octokit (~> 4.14.0)
-  rake (~> 12.3.0)
+  rake (~> 13.0.0)
   redisstore (~> 1.0.0)
   rspec (~> 3.8.0)
   rubocop (~> 0.76.0)
